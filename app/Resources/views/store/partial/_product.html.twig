@@ -1,0 +1,44 @@
+<div class="well">
+    {% set nombre = comments|length %}
+    <p class="pull-right label label-success">Actuellement {{ nombre }} avis</p>
+
+    {% for comment in comments %}
+
+        <div class="row">
+            <div class="col-md-12">
+                <span class="label label-info">{{comment.nom }}</span>
+                <span class="label label-default pull-right">{{ comment.date|date('d-m-Y') }}</span>
+                <p>{{ comment.comment }}</p>
+            </div>
+        </div>
+
+        <hr>
+
+    {% endfor %}
+
+    <div>
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="alert alert-success" role="alert">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        <form action="{{ path('store_product', {id: product.id , slug: product.slug } ) }}" method="POST" {{ form_enctype(form) }} >
+            <div class="form-group">
+                {#<label for="name">Votre nom</label>#}
+                {{ form_errors(form.nom) }}
+                {{ form_label(form.nom) }}
+                {{ form_widget(form.nom, { 'attr' : { 'class' : 'form-control' } }) }}
+                {#<input type="text" class="form-control" id="name">#}
+            </div>
+            <div class="form-group">
+                {#<label for="message">Votre avis</label>#}
+                {{ form_errors(form.comment) }}
+                {{ form_label(form.comment) }}
+                {{ form_widget(form.comment, { 'attr' : { 'class' : 'form-control' } }) }}
+                {#<textarea class="form-control" name="comment" rows="3"></textarea>#}
+            </div>
+            {{ form_rest(form) }}
+            <button type="submit" class="btn btn-info">Envoyer mon avis</button>
+        </form>
+    </div>
+</div>

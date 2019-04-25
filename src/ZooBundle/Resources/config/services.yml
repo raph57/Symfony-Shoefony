@@ -1,0 +1,4 @@
+services:
+#    zoo.example:
+#        class: ZooBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

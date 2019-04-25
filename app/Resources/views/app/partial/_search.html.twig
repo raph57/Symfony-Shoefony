@@ -1,0 +1,15 @@
+{#{{ dump(formu.vars.value.title)}}#}
+
+{#{{ form_start(formu,{'class': 'navbar-form navbar-right', 'method':'POST'}) }}#}
+
+<form class="navbar-form navbar-right" method="POST" >{{ form_enctype(formu) }}
+    {#action="{{ render(controller('AppBundle:Main:search'))}}" #}
+
+    <div class="form-group">
+        {{ form_widget(formu.slug, { 'attr' : { 'class' : 'form-control', 'placeholder' : formu.slug.vars.label } }) }}
+        {#<input type="text" placeholder="Recherche" class="form-control">#}
+    </div>
+    {{ form_rest(formu) }}
+    <button type="submit" class="btn btn-success">OK</button>
+</form>
+{#{{ form_end(formu) }}#}

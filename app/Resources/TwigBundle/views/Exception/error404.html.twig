@@ -1,0 +1,18 @@
+{% extends "app/layout/layout.html.twig" %}
+
+    {% block title %}Erreur {{ status_code }}{% endblock %}
+
+{% block content %}
+    <div class="row text-center">
+    <h1><span class="glyphicon glyphicon-exclamation-sign"></span> Ce lien n'existe pas.</h1>
+
+    <div>
+        <p><strong>Cette page n'existe pas, prière d'utiliser le site via l'interface :)</strong></p>
+
+        <p>Utilisez le menu du haut pour naviguer dans les différentes pages</p>
+
+        <p>type d'erreur : {{ status_code }}</p>
+
+    </div>
+    </div>
+{% endblock %}

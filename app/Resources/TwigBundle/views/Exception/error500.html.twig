@@ -1,0 +1,18 @@
+{% extends "app/layout/layout.html.twig" %}
+
+    {% block title %}Erreur {{ status_code }}{% endblock %}
+
+{% block content %}
+    <div class="row text-center">
+    <h1> <span class="glyphicon glyphicon-exclamation-sign"></span> Erreur interne au site, ne vous inquiétez pas :)</h1>
+
+    <div>
+        <p><strong>Une erreur interne est survenue, veuillez réessayer ultérieurement</strong></p>
+
+        <p>Utilisez le menu du haut pour naviguer dans les différentes pages</p>
+
+        <p>type d'erreur : {{ status_code }}</p>
+
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,1 @@
+décommenter  la ligne sql_mode="" dans my.ini

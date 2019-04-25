@@ -1,0 +1,14 @@
+<div class="col-md-3">
+    <p class="lead">Nos marques</p>
+    <div class="list-group">
+
+
+        <a href="{{ path('store_products') }}"
+           class="list-group-item {% if url == "products" or url == "search" or url matches '/^[-+]?[0-9]*\\.?[0-9]+$/' %} active {% endif %}">Toutes
+            les marques</a>
+        {% for brand in brands %}
+            <a href="{{ path('store_products_by_brand',{'id':brand.id, 'slug':brand.title}) }}"
+               class="list-group-item {% if url == brand.title %} active {% endif %}">{{ brand.title }}</a>
+        {% endfor %}
+    </div>
+</div>

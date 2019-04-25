@@ -1,0 +1,30 @@
+{% extends "store/layout/layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Produit n°{{ product.id }}{% endblock %}
+
+{% block content_store %}
+
+    <p class="lead">Fiche descriptive " {{ product.title|title }} " <a href="{{ path('store_products') }}" class="btn btn-default pull-right">Retour aux produits</a></p>
+
+    <div class="row">
+
+        <div class="thumbnail">
+            <img src="{{ asset('img/products/' ~ product.image.url) }}" alt="{{ product.image.alt }}" class="img-responsive">
+            <div class="caption-full">
+                <h4 class="pull-right"><span class="badge">{{ product.price }} €</span></h4>
+                <h3>{{ product.title|title }}</h3>
+                <p>{{ product.description }}</p>
+                <p>
+                    {{ product.longDescription }}
+                </p>
+            </div>
+        </div>
+
+        {% block commmentSection %}
+            {% include 'store/partial/_product.html.twig' with {'product': product, 'comments':comments } %}
+
+        {% endblock %}
+
+    </div>
+
+{% endblock %}

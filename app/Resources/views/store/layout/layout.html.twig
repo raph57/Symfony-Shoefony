@@ -1,0 +1,24 @@
+{% extends "app/layout/layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Catalogue{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        
+        {% block sidebar %}
+            {{ render(controller('StoreBundle:Store:brands')) }}
+        {% endblock %}
+        
+        <div class="col-md-9">
+
+
+            {% block content_store %}
+
+            {% endblock %}
+
+
+                
+        </div>
+
+{% endblock %}

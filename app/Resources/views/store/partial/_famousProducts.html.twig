@@ -1,0 +1,19 @@
+
+{% for key,prod in famousProducts %}
+
+<div class="col-md-3 col-sm-6 hero-feature">
+    <div class="thumbnail">
+        <img src="{{ asset('img/products/'~prod.0.image.url) }}" alt="Nom du produit">
+        <div class="caption">
+            <h3>{{ prod.0.title}}</h3>
+            <p>{{ prod.0.description }}</p>
+            <p>
+                <span class="badge">{{ prod.0.price }} €</span> <a href="{{ path('store_product', { 'id' : prod.0.id, 'slug' : prod.0.slug }) }}" class="btn btn-default">Voir la fiche</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+{% endfor %}

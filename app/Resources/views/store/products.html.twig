@@ -1,0 +1,36 @@
+{% extends "store/layout/layout.html.twig" %}
+
+
+{% block title %}{{ parent() }} - Produits{% endblock %}
+
+{% block content_store %}
+
+    <p class="lead">{% if brandName is defined %} Nos produits "{{ brandName }}"{% else %} Recherche  {% endif %}</p>
+
+
+    {#{% block ProductsWithPagination %}#}
+    {#{{ render(controller('StoreBundle:Store:pagination', { 'id':id , 'col': 'col-md-4' } )) }}#}
+    {#{% endblock %}#}
+
+    <div class="row text-center">
+        {% if products|length == 0 %}
+        <h1>*** Aucun résultat trouvé ***</h1>
+        {%  endif %}
+        {% for product in products %}
+            {{ include('store/partial/_products.html.twig', { 'product': product }) }}
+        {% endfor %}
+    </div>
+    {% if products.route is defined %}
+        <div class="row text-center">
+            <div class="navigation">
+
+                {{ knp_pagination_render(products) }}
+
+            </div>
+
+        </div>
+    {% endif %}
+
+{% endblock %}
+
+

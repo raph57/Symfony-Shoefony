@@ -1,0 +1,23 @@
+zoo:
+    resource: "@ZooBundle/Controller/"
+    type:     annotation
+    prefix:   /zoo
+
+store:
+    resource: "@StoreBundle/Controller/"
+    type:     annotation
+    prefix:   /store
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+admin:
+    resource: "@AdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin/dashboard
+
+# app/config/routing.yml
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
